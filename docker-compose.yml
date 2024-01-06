@@ -1,0 +1,23 @@
+services:
+  postgres-db:
+    image: postgres
+    volumes:
+      - ./.data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=sgstask
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+  django-project:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./src:/code
+    ports:
+      - "8000:8000"
+    environment:
+      - POSTGRES_NAME=sgstask
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    depends_on:
+      - postgres-db
