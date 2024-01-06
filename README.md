@@ -3,6 +3,24 @@
 
 <br/>
 
+## Requirements
+
+* docker with docker-compose
+* libraries from requirements.txt
+
+<br/>
+
+## Building the containers
+
+```sh
+make build
+make up
+# or
+make all # builds, brings containers up, runs tests
+```
+
+<br/>
+
 # Task description
 
 Написать Веб-приложение для просмотра изображений.  
