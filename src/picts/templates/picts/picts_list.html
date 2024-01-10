@@ -7,6 +7,14 @@
 {% endblock %}
 
 {% block content %}
-    <div class="elem">pict 1</div>
-    <div class="elem">pict 2</div>
+    {% for object in object_list %}
+        <div class="elem">
+            <a href="{{ object.get_absolute_url }}">
+                <p><img class="elem" src="{% if object.pict %}{{ object.pict.url }}{% endif %}" /></p>
+                <p class="title">{{ object.title }}</p>
+            </a>
+        </div>
+    {% empty %}
+        <div class="elem">No pictures</div>
+    {% endfor %}
 {% endblock %}

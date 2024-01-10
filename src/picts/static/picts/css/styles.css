@@ -8,6 +8,18 @@ div.main {
 div {
     margin: 15px 5px;
 }
+div.elem {
+    padding: 10px;
+    background-color: lightgrey;
+    border-radius: 5px;
+}
+img.elem {
+    max-width: 200px;
+    max-height: 200px;
+}
+p.title {
+    text-align: center;
+}
 a.menu {
     padding: 10px;
     background-color: lightgrey;
