@@ -16,6 +16,7 @@ class PictsList(DataMixin, ListView):
 class PictDetails(DataMixin, DetailView):
     template_name = 'picts/pict_details.html'
     page_header = 'Details of picture'
+    single_element = True
     model = Picts
 
 class PictAdd(DataMixin, CreateView):
@@ -27,11 +28,13 @@ class PictAdd(DataMixin, CreateView):
 class PictEdit(DataMixin, UpdateView):
     template_name = 'picts/pict_add.html'
     page_header = 'Edit the picture'
+    single_element = True
     model = Picts
     fields = ["title", "pict", "description", "slug"]
 
 class PictDelete(DataMixin, DeleteView):
     template_name = 'picts/pict_delete.html'
     page_header = 'Delete the picture'
+    single_element = True
     model = Picts
     success_url = reverse_lazy("main_page")
