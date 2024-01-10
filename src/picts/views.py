@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from django.urls import reverse_lazy
 
 from .models import Picts
 from .utils import DataMixin
@@ -28,3 +29,9 @@ class PictEdit(DataMixin, UpdateView):
     page_header = 'Edit the picture'
     model = Picts
     fields = ["title", "pict", "description", "slug"]
+
+class PictDelete(DataMixin, DeleteView):
+    template_name = 'picts/pict_delete.html'
+    page_header = 'Delete the picture'
+    model = Picts
+    success_url = reverse_lazy("main_page")
