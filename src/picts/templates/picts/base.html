@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Test task for SGS{% endblock %}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+    <div class="main menu">
+        {% block mainmenu %}
+            <div><a class="menu" href="">Main page</a></div>
+        {% endblock %}
+    </div>
+
+    <div class="main header">
+        {% block header%}
+            <h1>Dummy header</h1>
+        {% endblock %}
+    </div>
+
+    <div class="main content">
+        {% block content %}
+            <div class="elem">Dummy element</div>
+        {% endblock %}
+    </div>
+</body>
+</html>
