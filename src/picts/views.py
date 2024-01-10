@@ -8,3 +8,7 @@ from .models import Picts
 class PictsList(ListView):
     template_name = 'picts/picts_list.html'
     model = Picts
+
+class PictDetails(DetailView):
+    template_name = 'picts/pict_details.html'
+    model = Picts

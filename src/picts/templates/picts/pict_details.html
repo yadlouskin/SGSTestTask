@@ -1,0 +1,25 @@
+{% extends "picts/base.html" %}
+
+{% block title %}Pict details{% endblock %}
+
+{% block header %}
+    <h1>Details of picture</h1>
+{% endblock %}
+
+{% block content %}
+    <div>
+        <p>Title: {{ object.title }}</p>
+        <img src="{% if object.pict %}{{ object.pict.url }}{% endif %}" />
+
+        <p>Description: {{ object.description }}</p>
+        <p>Size: {{ object.size }}</p>
+        <p>Main color: {{ object.main_color }}</p>
+        <p>Average color: {{ object.average_color }}</p>
+        <p>Color palette: {{ object.color_palette }}</p>
+
+        <p>Slug: {{ object.slug }}</p>
+        <p>Created: {{ object.created }}</p>
+        <p>Updated: {{ object.updated }}</p>
+        <p>Author: {{ object.author }}</p>
+    </div>
+{% endblock %}
