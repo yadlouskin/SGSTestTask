@@ -12,6 +12,8 @@ div.elem {
     padding: 10px;
     background-color: lightgrey;
     border-radius: 5px;
+    max-width: 220px;
+    max-height: 220px;
 }
 img.elem {
     max-width: 200px;
