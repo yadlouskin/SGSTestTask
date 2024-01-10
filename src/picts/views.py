@@ -9,6 +9,7 @@ from .utils import DataMixin
 # Create your views here.
 
 class PictsList(DataMixin, ListView):
+    paginate_by = 10
     template_name = 'picts/picts_list.html'
     page_header = 'List of all pictures'
     model = Picts
