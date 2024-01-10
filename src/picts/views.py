@@ -22,3 +22,9 @@ class PictAdd(DataMixin, CreateView):
     page_header = 'Add a new picture'
     model = Picts
     fields = ["title", "pict", "description", "slug"]
+
+class PictEdit(DataMixin, UpdateView):
+    template_name = 'picts/pict_add.html'
+    page_header = 'Edit the picture'
+    model = Picts
+    fields = ["title", "pict", "description", "slug"]
