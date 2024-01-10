@@ -5,7 +5,7 @@ from django.db import models
 
 class Picts(models.Model):
     title = models.CharField(max_length=255)
-    #photo = models.ImageField(upload_to="/picts/%Y/%m/%d/", default=None, blank=True, null=True)
+    pict = models.ImageField(upload_to="%Y/%m/%d/", default=None, blank=True, null=True)
 
     description = models.TextField(blank=True) # Описание картинки
     size = models.CharField(max_length=255) # Размер картинки
