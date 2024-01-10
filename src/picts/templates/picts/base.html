@@ -2,20 +2,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{% block title %}Test task for SGS{% endblock %}</title>
+    <title>{% block title %}{{ page_header }}{% endblock %}</title>
     <link type="text/css" href="{% static 'picts/css/styles.css' %}" rel="stylesheet" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
     <div class="main menu">
         {% block mainmenu %}
-            <div><a class="menu" href="">Main page</a></div>
+            {% for elem in mainmenu %}
+                <div><a class="menu" href="{% url elem.url_name %}">{{ elem.button_name }}</a></div>
+            {% endfor %}
         {% endblock %}
     </div>
 
     <div class="main header">
         {% block header%}
-            <h1>Dummy header</h1>
+            <h1>{{ page_header }}</h1>
         {% endblock %}
     </div>
 

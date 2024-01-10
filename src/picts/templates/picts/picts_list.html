@@ -1,11 +1,5 @@
 {% extends "picts/base.html" %}
 
-{% block title %}Picts list{% endblock %}
-
-{% block header %}
-    <h1>List of all pictures</h1>
-{% endblock %}
-
 {% block content %}
     {% for object in object_list %}
         <div class="elem">
