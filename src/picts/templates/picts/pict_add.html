@@ -1,0 +1,15 @@
+{% extends "picts/base.html" %}
+
+{% block title %}Add new picture{% endblock %}
+
+{% block header %}
+    <h1>Add a new picture</h1>
+{% endblock %}
+
+{% block content %}
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit" />
+    </form>
+{% endblock %}
