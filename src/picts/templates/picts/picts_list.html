@@ -1,5 +1,14 @@
 {% extends "picts/base.html" %}
 
+{% block search%}
+    <form method='GET'>
+        {% csrf_token %}
+        <label for="id_title">Title starts with:</label>
+        <input type="text" name="title" maxlength="255" required="" id="id_title">
+        <input type="submit" value="Search" />
+    </form>
+{% endblock %}
+
 {% block content %}
     {% for object in object_list %}
         <div class="elem">

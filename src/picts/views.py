@@ -15,6 +15,12 @@ class PictsList(DataMixin, ListView):
     page_header = 'List of all pictures'
     model = Picts
 
+    def get_queryset(self):
+        if 'title' in self.request.GET:
+            title_value = self.request.GET.get('title')
+            return super().get_queryset().filter(title__startswith=title_value)
+        return super().get_queryset()
+
 
 class PictDetails(DataMixin, DetailView):
     template_name = 'picts/pict_details.html'
