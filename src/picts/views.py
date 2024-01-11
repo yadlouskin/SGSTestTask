@@ -8,11 +8,13 @@ from .utils import DataMixin
 
 # Create your views here.
 
+
 class PictsList(DataMixin, ListView):
     paginate_by = 10
     template_name = 'picts/picts_list.html'
     page_header = 'List of all pictures'
     model = Picts
+
 
 class PictDetails(DataMixin, DetailView):
     template_name = 'picts/pict_details.html'
@@ -20,11 +22,13 @@ class PictDetails(DataMixin, DetailView):
     single_element = True
     model = Picts
 
+
 class PictAdd(DataMixin, CreateView):
     template_name = 'picts/pict_add.html'
     page_header = 'Add a new picture'
     model = Picts
     fields = ["title", "pict", "description"]
+
 
 class PictEdit(DataMixin, UpdateView):
     template_name = 'picts/pict_add.html'
@@ -32,6 +36,7 @@ class PictEdit(DataMixin, UpdateView):
     single_element = True
     model = Picts
     fields = ["title", "pict", "description"]
+
 
 class PictDelete(DataMixin, DeleteView):
     template_name = 'picts/pict_delete.html'
