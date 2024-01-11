@@ -4,7 +4,7 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
 
 from .models import Picts
-from .utils import DataMixin
+from .utils import DataMixin, AutofillMixin
 
 # Create your views here.
 
@@ -23,14 +23,14 @@ class PictDetails(DataMixin, DetailView):
     model = Picts
 
 
-class PictAdd(DataMixin, CreateView):
+class PictAdd(AutofillMixin, DataMixin, CreateView):
     template_name = 'picts/pict_add.html'
     page_header = 'Add a new picture'
     model = Picts
     fields = ["title", "pict", "description"]
 
 
-class PictEdit(DataMixin, UpdateView):
+class PictEdit(AutofillMixin, DataMixin, UpdateView):
     template_name = 'picts/pict_add.html'
     page_header = 'Edit the picture'
     single_element = True

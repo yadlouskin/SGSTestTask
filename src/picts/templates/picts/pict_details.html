@@ -7,8 +7,8 @@
 
         <p>Description: {{ object.description }}</p>
         <p>Size: {{ object.size }}</p>
-        <p>Main color: {{ object.main_color }}</p>
-        <p>Average color: {{ object.average_color }}</p>
+        <p>Main color: <span style="background-color:{{ object.main_color }};">&nbsp&nbsp&nbsp&nbsp</span> {{ object.main_color }}</p>
+        <p>Average color: <span style="background-color:{{ object.average_color }};">&nbsp&nbsp&nbsp&nbsp</span> {{ object.average_color }}</p>
         <p>Color palette: {{ object.color_palette }}</p>
 
         <p>Slug: {{ object.slug }}</p>
