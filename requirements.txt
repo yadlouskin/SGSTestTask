@@ -1,6 +1,7 @@
 Django
 djangorestframework
 django-debug-toolbar
+django-autoslug
 psycopg
 pytest
 flake8

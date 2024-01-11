@@ -1,3 +1,4 @@
+from autoslug import AutoSlugField
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
@@ -15,7 +16,7 @@ class Picts(models.Model):
     average_color = models.CharField(max_length=7) # Средний цвет изображения
     color_palette = models.CharField(max_length=255) # Цветовая палитра
 
-    slug = models.SlugField(max_length=255, unique=True, db_index=True)
+    slug = AutoSlugField(populate_from='title', max_length=255, unique=True, db_index=True,  editable = False)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, default=None)
