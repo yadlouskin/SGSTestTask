@@ -2,6 +2,7 @@
 
 {% block mainmenu %}
 <div><a class="menu" href="{% url 'password_change' %}">Change password</a></div>
+<div><a class="menu" href="{% url 'admin' %}">Users</a></div>
 <div>
     <form method="post" onclick="this.submit();" action="{% url 'logout' %}">
         {% csrf_token %}
