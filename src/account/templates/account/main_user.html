@@ -2,6 +2,7 @@
 
 {% block mainmenu %}
 <div><a class="menu" href="{% url 'user_list' %}">User list</a></div>
+<div><a class="menu" href="{% url 'add_user' %}">Add user</a></div>
 <div><a class="menu" href="{% url 'password_change' %}">Change password</a></div>
 <div>
     <form method="post" onclick="this.submit();" action="{% url 'logout' %}">

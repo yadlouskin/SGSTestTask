@@ -4,7 +4,7 @@ from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView,
 from django.contrib.auth.forms import AuthenticationForm
 from django.views.generic.base import TemplateView
 
-from .views import UserList, UserDetails
+from .views import UserList, UserDetails, UserAdd
 
 
 urlpatterns = [
@@ -30,4 +30,5 @@ urlpatterns = [
 
     path('user_detail/<int:pk>/', UserDetails.as_view(), name='user_details'),
     path('user_list/', UserList.as_view(), name='user_list'),
+    path('add_user/', UserAdd.as_view(), name='add_user'),
 ]
