@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
@@ -29,14 +30,14 @@ class PictDetails(DataMixin, DetailView):
     model = Picts
 
 
-class PictAdd(AutofillMixin, DataMixin, CreateView):
+class PictAdd(LoginRequiredMixin, AutofillMixin, DataMixin, CreateView):
     template_name = 'picts/pict_add.html'
     page_header = 'Add a new picture'
     model = Picts
     fields = ["title", "pict", "description"]
 
 
-class PictEdit(AutofillMixin, DataMixin, UpdateView):
+class PictEdit(LoginRequiredMixin, AutofillMixin, DataMixin, UpdateView):
     template_name = 'picts/pict_add.html'
     page_header = 'Edit the picture'
     single_element = True
@@ -44,7 +45,7 @@ class PictEdit(AutofillMixin, DataMixin, UpdateView):
     fields = ["title", "pict", "description"]
 
 
-class PictDelete(DataMixin, DeleteView):
+class PictDelete(LoginRequiredMixin, DataMixin, DeleteView):
     template_name = 'picts/pict_delete.html'
     page_header = 'Delete the picture'
     single_element = True
