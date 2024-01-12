@@ -47,4 +47,5 @@ class AutofillMixin:
         obj.main_color = hex_color(*dominant_color)
         obj.color_palette = '(' + \
             ', '.join([hex_color(*rbg) for rbg in palette]) + ')'
+        obj.author = self.request.user
         return super().form_valid(form)
