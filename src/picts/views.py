@@ -1,11 +1,10 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
 
 from .models import Picts
-from .utils import DataMixin, AutofillMixin
+from .utils import DataMixin, AutofillMixin, EmployeePassesTestMixin
 
 # Create your views here.
 
@@ -30,14 +29,14 @@ class PictDetails(DataMixin, DetailView):
     model = Picts
 
 
-class PictAdd(LoginRequiredMixin, AutofillMixin, DataMixin, CreateView):
+class PictAdd(EmployeePassesTestMixin, AutofillMixin, DataMixin, CreateView):
     template_name = 'picts/pict_add.html'
     page_header = 'Add a new picture'
     model = Picts
     fields = ["title", "pict", "description"]
 
 
-class PictEdit(LoginRequiredMixin, AutofillMixin, DataMixin, UpdateView):
+class PictEdit(EmployeePassesTestMixin, AutofillMixin, DataMixin, UpdateView):
     template_name = 'picts/pict_add.html'
     page_header = 'Edit the picture'
     single_element = True
@@ -45,7 +44,7 @@ class PictEdit(LoginRequiredMixin, AutofillMixin, DataMixin, UpdateView):
     fields = ["title", "pict", "description"]
 
 
-class PictDelete(LoginRequiredMixin, DataMixin, DeleteView):
+class PictDelete(EmployeePassesTestMixin, DataMixin, DeleteView):
     template_name = 'picts/pict_delete.html'
     page_header = 'Delete the picture'
     single_element = True

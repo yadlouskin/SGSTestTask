@@ -1,4 +1,5 @@
 from colorthief import ColorThief
+from django.contrib.auth.mixins import UserPassesTestMixin
 from PIL import Image
 
 
@@ -49,3 +50,9 @@ class AutofillMixin:
             ', '.join([hex_color(*rbg) for rbg in palette]) + ')'
         obj.author = self.request.user
         return super().form_valid(form)
+
+
+class EmployeePassesTestMixin(UserPassesTestMixin):
+    def test_func(self):
+        return self.request.user.groups.filter(
+            name__in=['admin', 'employee']).exists()
