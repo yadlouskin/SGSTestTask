@@ -1,8 +1,8 @@
 {% extends "account/base.html" %}
 
 {% block mainmenu %}
+<div><a class="menu" href="{% url 'user_list' %}">User list</a></div>
 <div><a class="menu" href="{% url 'password_change' %}">Change password</a></div>
-<div><a class="menu" href="{% url 'admin' %}">Users</a></div>
 <div>
     <form method="post" onclick="this.submit();" action="{% url 'logout' %}">
         {% csrf_token %}

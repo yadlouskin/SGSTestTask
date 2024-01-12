@@ -1,0 +1,18 @@
+{% extends "account/main_user.html" %}
+
+{% block content %}
+    <div>
+        <p>id: {{ object.id }}</p>
+        <p>username: {{ object.username }}</p>
+        <p>first_name: {{ object.first_name }}</p>
+        <p>last_name: {{ object.last_name }}</p>
+        <p>email: {{ object.email }}</p>
+        <p>is_staff: {{ object.is_staff }}</p>
+        <p>is_active: {{ object.is_active }}</p>
+        <p>is_superuser: {{ object.is_superuser }}</p>
+        <p>last_login: {{ object.last_login }}</p>
+        <p>date_joined: {{ object.date_joined }}</p>
+        <p>groups: {{ object.groups.all|join:', ' }}</p>
+        <p>user_permissions: {{ object.user_permissions.all|join:', ' }}</p>
+    </div>
+{% endblock %}

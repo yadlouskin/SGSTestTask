@@ -1,0 +1,13 @@
+{% extends "account/main_user.html" %}
+
+{% block content %}
+    {% for object in object_list %}
+        <div class="elem">
+            <p class="title">Username: {{ object.username }}</p>
+            <p class="title">id: {{ object.id }}</p>
+            <p class="title"><a href="{% url 'user_details' object.id %}">Open profile</a></p>
+        </div>
+    {% empty %}
+        <div class="elem">No Users</div>
+    {% endfor %}
+{% endblock %}

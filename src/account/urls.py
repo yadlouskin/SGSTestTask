@@ -4,6 +4,8 @@ from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView,
 from django.contrib.auth.forms import AuthenticationForm
 from django.views.generic.base import TemplateView
 
+from .views import UserList, UserDetails
+
 
 urlpatterns = [
     path('login/', LoginView.as_view(
@@ -25,4 +27,7 @@ urlpatterns = [
         template_name='account/password_change_done.html',
         extra_context={"page_header": "Password changed"}
     ), name='password_change_done'),
+
+    path('user_detail/<int:pk>/', UserDetails.as_view(), name='user_details'),
+    path('user_list/', UserList.as_view(), name='user_list'),
 ]
