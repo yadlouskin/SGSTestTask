@@ -14,5 +14,7 @@
         <p>date_joined: {{ object.date_joined }}</p>
         <p>groups: {{ object.groups.all|join:', ' }}</p>
         <p>user_permissions: {{ object.user_permissions.all|join:', ' }}</p>
+        <p><a href="{% url 'edit_user' object.id %}">Edit user</a></p>
+        <p><a href="{% url 'delete_user' object.id %}">Delete user</a></p>
     </div>
 {% endblock %}

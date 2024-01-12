@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 
 # Create your views here.
 
@@ -35,3 +35,23 @@ class UserAdd(CreateView):
         'email',
         'is_active',
         'groups']
+
+
+class UserEdit(UpdateView):
+    template_name = 'account/user_add.html'
+    model = User
+    extra_context = {"page_header": "Edit user"}
+    fields = [
+        'username',
+        'first_name',
+        'last_name',
+        'email',
+        'is_active',
+        'groups']
+
+
+class UserDelete(DeleteView):
+    template_name = 'account/user_delete.html'
+    model = User
+    extra_context = {"page_header": "Delete user"}
+    success_url = reverse_lazy("user_list")
