@@ -1,0 +1,25 @@
+div.main {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: 1px;
+}
+div.main {
+    margin: auto;
+}
+div {
+    margin: 15px 5px;
+}
+
+a.menu {
+    padding: 10px;
+    background-color: lightgrey;
+    font-size: larger;
+    border-radius: 5px;
+}
+a.menu:not([href]) {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}

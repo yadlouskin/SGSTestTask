@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{{ page_header }}{% endblock %}</title>
+    <link type="text/css" href="{% static 'account/css/styles.css' %}" rel="stylesheet" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+    <div class="main menu">
+        <div><a class="menu" href="{% url 'main_page' %}">Main page</a></div>
+        {% block mainmenu %}
+        {% endblock %}
+    </div>
+
+    <div class="main header">
+        {% block header%}
+            <h1>{{ page_header }}</h1>
+        {% endblock %}
+    </div>
+
+    <div id="main content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
