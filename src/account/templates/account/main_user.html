@@ -1,0 +1,15 @@
+{% extends "account/base.html" %}
+
+{% block mainmenu %}
+<div>
+    <form method="post" onclick="this.submit();" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <a class="menu">Logout</a>
+    </form>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+{% endblock %}
