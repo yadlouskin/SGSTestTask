@@ -13,10 +13,11 @@
 ## Building the containers
 
 ```sh
-make build
-make up
+make build         # create docker image
+make up            # bring containers up
+make firstbdsetup  # run migrations, add user groups and create super user
 # or
-make all # builds, brings containers up, runs tests
+make all           # builds, brings containers up, run migration, add user groups and create super user
 ```
 
 <br/>
