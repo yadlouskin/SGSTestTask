@@ -38,6 +38,11 @@ class UserAdd(AdminRolePassesTestMixin, CreateView):
         'is_active',
         'groups']
 
+    def form_valid(self, form):
+        user = form.save(commit=False)
+        user.set_password(form.cleaned_data.get('password'))
+        return super().form_valid(form)
+
 
 class UserEdit(AdminRolePassesTestMixin, UpdateView):
     template_name = 'account/user_add.html'
