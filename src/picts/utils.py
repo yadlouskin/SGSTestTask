@@ -55,4 +55,5 @@ class AutofillMixin:
 class EmployeePassesTestMixin(UserPassesTestMixin):
     def test_func(self):
         return self.request.user.groups.filter(
-            name__in=['admin', 'employee']).exists()
+            name__in=['admin', 'employee']
+            ).exists() or self.request.user.is_superuser
